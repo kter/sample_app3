@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 /dbdata
+# Ignore Spring files.
+/spring/*.pid
