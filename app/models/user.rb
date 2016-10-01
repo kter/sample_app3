@@ -10,12 +10,14 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
 
   # 与えられた文字列のハッシュ値を返す
-  def User.digest(string)
+  # self.digestのselfはself.emailのようなモデル(インスタンス)ではなくクラスを指す
+  # class << selfとして、def digestでも良い
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
-  def User.new_token
+  def self.new_token
     SecureRandom.urlsafe_base64
   end
 
