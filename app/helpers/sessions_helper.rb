@@ -11,4 +11,9 @@ module SessionsHelper
     # findでは例外が返る時があるのでfind_byを使う
     @current_user ||= User.find_by(id: session[:user_id])
   end
+
+  # ユーザがログインしていればtrue、その他ならfalseを返す
+  def logged_in?
+    !current_user.nil?
+  end
 end
