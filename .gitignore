@@ -14,3 +14,4 @@
 /dbdata
 # Ignore Spring files.
 /spring/*.pid
+tags
