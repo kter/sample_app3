@@ -1,7 +1,5 @@
 db:
   image: mysql
-  volumes:
-    - ./dbdata:/var/lib/mysql
   environment:
     - MYSQL_ROOT_PASSWORD=sample_app3
 web:
