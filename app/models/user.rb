@@ -68,6 +68,11 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  # すべてのユーザがフィールドを持つためUserモデル
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
   private
     def create_activation_digest
       self.activation_token = User.new_token
