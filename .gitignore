@@ -15,3 +15,4 @@
 # Ignore Spring files.
 /spring/*.pid
 tags
+/public/uploads
